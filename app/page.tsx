@@ -27,6 +27,7 @@ export default function Home() {
       </div>}
       <div className="flex justify-center items-center w-full my-[8rem]">
         <AccordionComponent />
+        
       </div>
     </PageWrapper>
   );
