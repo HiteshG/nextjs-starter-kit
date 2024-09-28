@@ -13,23 +13,6 @@ import { cn } from "@/lib/utils";
 import { useAuth } from "@clerk/nextjs";
 import { Dialog, DialogClose } from "@radix-ui/react-dialog";
 
-const components: { title: string; href: string; description: string }[] = [
-    {
-        title: "Marketing Page",
-        href: "/marketing-page",
-        description: "Write some wavy here to get them to click.",
-    },
-    {
-        title: "Marketing Page",
-        href: "/marketing-page",
-        description: "Write some wavy here to get them to click.",
-    },
-    {
-        title: "Marketing Page",
-        href: "/marketing-page",
-        description: "Write some wavy here to get them to click.",
-    },
-];
 
 export default function NavBar() {
     let userId = null;
@@ -77,28 +60,10 @@ export default function NavBar() {
                     </Link>
                 </NavigationMenuList>
                 <NavigationMenuList>
-                    <NavigationMenuItem className="max-[825px]:hidden ml-5">
-                        <NavigationMenuTrigger className="dark:bg-black dark:bg-opacity-50">
-                            Features
-                        </NavigationMenuTrigger>
-                        <NavigationMenuContent>
-                            <ul className="flex flex-col w-[400px] gap-3 p-4 lg:w-[500px]">
-                                {components.map((component) => (
-                                    <ListItem
-                                        key={component.title}
-                                        title={component.title}
-                                        href={component.href}
-                                    >
-                                        {component.description}
-                                    </ListItem>
-                                ))}
-                            </ul>
-                        </NavigationMenuContent>
-                    </NavigationMenuItem>
                     <NavigationMenuItem className="max-[825px]:hidden">
                         <Link href="/dashboard" legacyBehavior passHref>
                             <Button variant="ghost">
-                                Dashboard
+                                ArtSearch
                             </Button>
                         </Link>
                     </NavigationMenuItem>
@@ -106,7 +71,13 @@ export default function NavBar() {
             </NavigationMenu>
             <div className="flex items-center gap-2 max-[825px]:hidden">
                 {userId && <UserProfile />}
-                <ModeToggle />
+                { !userId &&
+                    <Link href="/dashboard">
+                        <Button className="animate-buttonheartbeat rounded-md bg-blue-600 hover:bg-blue-500 text-sm font-semibold text-white">
+                            Search
+                        </Button>
+                    </Link>
+                }
             </div>
         </div>
     );

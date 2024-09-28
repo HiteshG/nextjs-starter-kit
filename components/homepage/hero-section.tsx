@@ -1,18 +1,25 @@
-import { ArrowRight, Github } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from "next/link";
-import { BorderBeam } from "../magicui/border-beam";
 import { Button } from "../ui/button";
-import Image from 'next/image';
 import { TITLE_TAILWIND_CLASS } from '@/utils/constants';
+import Marquee from "react-fast-marquee";
 
 export default function HeroSection() {
+    const buttonItems = [
+        { text: 'Picasso', image: 'https://d7hftxdivxxvm.cloudfront.net/?height=666&quality=80&resize_to=fit&src=https%3A%2F%2Fd32dm0rphc51dk.cloudfront.net%2FpBLM6-XXPrq11O6vHiwYBw%2Flarger.jpg&width=540' },
+        { text: 'Kaws', image: 'https://d7hftxdivxxvm.cloudfront.net/?height=722&quality=80&resize_to=fit&src=https%3A%2F%2Fd32dm0rphc51dk.cloudfront.net%2F5ccoB2lc59mACy1VX6IpwA%2Flarger.jpg&width=498' },
+        { text: 'Manjeet bawa', image: 'https://d7hftxdivxxvm.cloudfront.net/?height=514&quality=80&resize_to=fit&src=https%3A%2F%2Fd32dm0rphc51dk.cloudfront.net%2FagP8jVuVyPHGYXzDbLl4fA%2Flarger.jpg&width=700' },
+        { text: 'Takashi Murakami', image: 'https://d7hftxdivxxvm.cloudfront.net/?height=600&quality=80&resize_to=fit&src=https%3A%2F%2Fd32dm0rphc51dk.cloudfront.net%2Fz0R0eDV-0l2_tyloZm4KrA%2Flarger.jpg&width=600' },
+        { text: 'Jean-Michel Basquiat', image: 'https://d7hftxdivxxvm.cloudfront.net/?height=650&quality=80&resize_to=fit&src=https%3A%2F%2Fd32dm0rphc51dk.cloudfront.net%2FGL5XqH6FGQFOeuDhJbYCGg%2Flarger.jpg&width=554' },
+        { text: 'S. H. Raza', image: 'https://d7hftxdivxxvm.cloudfront.net/?height=600&quality=80&resize_to=fit&src=https%3A%2F%2Fd32dm0rphc51dk.cloudfront.net%2F5TYHLfLRrjn_TqVu092u2w%2Flarger.jpg&width=600' },
+    ];
     return (
-        <section className='flex flex-col items-center justify-center leading-6 mt-[3rem]' aria-label="Nextjs Starter Kit Hero">
+        <section className='flex flex-col items-center whitespace-pre-wrap justify-center leading-6 mt-[3rem]' aria-label="Nextjs Starter Kit Hero">
             <h1 className={`${TITLE_TAILWIND_CLASS} scroll-m-20 font-semibold tracking-tight text-center max-w-[1120px] bg-gradient-to-b dark:text-white`}>
-                Nextjs Starter Kit: Build & Ship Fast
+                AI-Powered Insights for the Art World
             </h1>
             <p className="mx-auto max-w-[700px] text-gray-500 text-center mt-2 dark:text-gray-400">
-                The Ultimate Nextjs 14 Starter Kit for quickly building your SaaS, giving you time to focus on what really matters
+                Transform raw data into actionable intelligence for artists, galleries, and collectors.
             </p>
             <div className="flex justify-center items-center gap-3">
                 <Link href="/dashboard" className="mt-5">
@@ -20,50 +27,49 @@ export default function HeroSection() {
                         Get Started
                     </Button>
                 </Link>
+            </div>
 
-                <Link
-                    href="https://discord.gg/HUcHdrrDgY"
-                    target='_blank'
-                    className="mt-5"
-                    aria-label="Join Discord (opens in a new tab)"
-                >
-                    <Button variant="outline" className="flex gap-1">
-                        Join Discord
-                        <ArrowRight className='w-4 h-4' aria-hidden="true" />
-                    </Button>
-                </Link>
-                <Link
-                    href="https://github.com/michaelshimeles/nextjs14-starter-template"
-                    target='_blank'
-                    className='animate-buttonheartbeat border p-2 rounded-full mt-5 hover:dark:bg-black hover:cursor-pointer'
-                    aria-label="View NextJS 14 Starter Template on GitHub"
-                >
-                    <Github className='w-5 h-5' aria-hidden="true" />
-                </Link>
-            </div>
-            <div>
-                <div className="relative flex max-w-6xl justify-center overflow-hidden mt-7">
-                    <div className="relative rounded-xl">
-                        <Image
-                            src="https://utfs.io/f/31dba2ff-6c3b-4927-99cd-b928eaa54d5f-5w20ij.png"
-                            alt="Nextjs Starter Kit Dashboard Preview"
-                            width={1100}
-                            height={550}
-                            priority={true}
-                            className="block rounded-[inherit] border object-contain shadow-lg dark:hidden"
-                        />
-                        <Image
-                            src="https://utfs.io/f/69a12ab1-4d57-4913-90f9-38c6aca6c373-1txg2.png"
-                            width={1100}
-                            height={550}
-                            alt="Nextjs Starter Kit Dark Mode Dashboard Preview"
-                            priority={true}
-                            className="dark:block rounded-[inherit] border object-contain shadow-lg hidden"
-                        />
-                        <BorderBeam size={250} duration={12} delay={9} />
-                    </div>
+            <div className="relative w-full max-w-2xl mt-12">
+                <div className="rounded-md border-2 border-input p-2 shadow-sm transition duration-100 focus-within:border-primary focus:border-2">
+                    <form className="space-y-2">
+                        <div className="space-y-2">
+                            <textarea 
+                                className="flex min-h-[60px] w-full resize-none rounded-md border-none bg-transparent p-1 text-lg placeholder:text-muted-foreground focus:outline-none"
+                                placeholder="Search the Artist?"
+                                maxLength={15000}
+                                name="search"
+                            />
+                        </div>
+                        <div className="flex justify-end">
+                            <Button 
+                                type="submit" 
+                                className="h-10 w-10 bg-primary text-primary-foreground p-0"
+                            >
+                            <ArrowRight className="h-10 w-10 p-2 text-white" />
+                            </Button>
+                        </div>
+                    </form>
                 </div>
+                {/* Horizontal marquee with buttons */}
+            <div className="w-full max-w-sm sm:max-w-2xl mt-8 overflow-hidden">
+                <Marquee>
+                    <div className="flex">
+                        {[...buttonItems, ...buttonItems].map((item, index) => (
+                            <div key={index} className="flex-shrink-0 mx-2">
+                                <button className="items-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 flex justify-start space-x-2 truncate px-3 py-5 max-w-[120px] sm:max-w-none" type="button">
+                                    <span className="flex h-8 w-8 items-center justify-center rounded-sm bg-muted overflow-hidden">
+                                        <img src={item.image} alt={item.text} className="w-full h-full object-cover" />
+                                    </span>
+                                    <span className="truncate">{item.text}</span>
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                </Marquee>
             </div>
+            </div>
+            
+            
         </section>
     )
 }

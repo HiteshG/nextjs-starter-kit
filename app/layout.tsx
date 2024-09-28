@@ -52,15 +52,7 @@ export default function RootLayout({
         </head>
         <body className={GeistSans.className}>
           <Provider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
               {children}
-              <Toaster />
-            </ThemeProvider>
           </Provider>
           <Analytics />
         </body>

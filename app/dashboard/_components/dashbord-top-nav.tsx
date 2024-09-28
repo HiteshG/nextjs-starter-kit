@@ -26,7 +26,7 @@ export default function DashboardTopNav({ children }: { children: ReactNode }) {
           <SheetContent side="left">
             <SheetHeader>
               <Link href="/">
-                <SheetTitle>Nextjs Starter Kit</SheetTitle>
+                <SheetTitle>ArtSearch</SheetTitle>
               </Link>
             </SheetHeader>
             <div className="flex flex-col space-y-3 mt-[1rem]">
@@ -68,7 +68,6 @@ export default function DashboardTopNav({ children }: { children: ReactNode }) {
         </Dialog>
         <div className="flex justify-center items-center gap-2 ml-auto">
           {config?.auth?.enabled && <UserProfile />}
-          <ModeToggle />
         </div>
       </header>
       {children}
