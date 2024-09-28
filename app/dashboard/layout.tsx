@@ -12,10 +12,10 @@ export default async function DashboardLayout({ children }: { children: ReactNod
 
   const { authorized, message } = await isAuthorized(user?.id!)
 
-  if (config.payments.enabled && !authorized) {
-    return <NotAuthorized />
-  }
-
+  // if (config.payments.enabled && !authorized) {
+  //   return <NotAuthorized />
+  // }
+  
   return (
     <div className="grid min-h-screen w-full lg:grid-cols-[280px_1fr]">
       <DashboardSideBar />
